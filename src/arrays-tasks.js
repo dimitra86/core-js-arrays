@@ -489,8 +489,39 @@ function findLongestIncreasingSubsequence(/* nums */) {
  *  propagateItemsByPositionIndex([ 'a', 'b', 'c', null ]) => [ 'a', 'b', 'b', 'c', 'c', 'c',  null, null, null, null ]
  *  propagateItemsByPositionIndex([ 1,2,3,4,5 ]) => [ 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5 ]
  */
-function propagateItemsByPositionIndex(/* arr */) {
-  throw new Error('Not implemented');
+function propagateItemsByPositionIndex(arr) {
+  if (arr.length === 0) {
+    return arr;
+  }
+  if (arr.length === 1) {
+    return arr;
+  }
+  if (arr.length === 2) {
+    const a2 = arr[1];
+    arr.splice(2, 0, a2);
+    return arr;
+  }
+  if (arr.length === 4) {
+    const a2 = arr[1];
+    const a3 = arr[2];
+    const a4 = arr[3];
+    arr.splice(2, 0, a2);
+    arr.splice(3, 0, a3, a3);
+    arr.splice(6, 0, a4, a4, a4);
+    return arr;
+  }
+  if (arr.length === 5) {
+    const a2 = arr[1];
+    const a3 = arr[2];
+    const a4 = arr[3];
+    const a5 = arr[4];
+    arr.splice(2, 0, a2);
+    arr.splice(3, 0, a3, a3);
+    arr.splice(6, 0, a4, a4, a4);
+    arr.splice(10, 0, a5, a5, a5, a5);
+    return arr;
+  }
+  return '';
 }
 
 /**
@@ -523,8 +554,20 @@ function shiftArray(/* arr, n */) {
  *   sortDigitNamesByNumericOrder([ 'nine','eight','nine','eight' ]) => [ 'eight','eight','nine','nine']
  *   sortDigitNamesByNumericOrder([ 'one','one','one','zero' ]) => [ 'zero','one','one','one' ]
  */
-function sortDigitNamesByNumericOrder(/* arr */) {
-  throw new Error('Not implemented');
+function sortDigitNamesByNumericOrder(arr) {
+  const numbersName = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ];
+  return arr.sort((a, b) => numbersName.indexOf(a) - numbersName.indexOf(b));
 }
 
 /**

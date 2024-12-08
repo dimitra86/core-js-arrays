@@ -458,8 +458,61 @@ function getIndicesOfOddNumbers(/* numbers */) {
  *    getHexRGBValues([ 0, 255, 16777215]) => [ '#000000', '#0000FF', '#FFFFFF' ]
  *    getHexRGBValues([]) => []
  */
-function getHexRGBValues(/* arr */) {
-  throw new Error('Not implemented');
+function getHexRGBValues(arr) {
+  if (arr.length === 0) {
+    return [];
+  }
+  const arrHex = [];
+
+  let hex1 = arr[0].toString(16);
+  // hex1 = hex1.toUpperCase();
+  if (hex1.length < 6) {
+    hex1 = `0${hex1}`;
+    if (hex1.length < 6) {
+      hex1 = `0${hex1}`;
+    }
+    if (hex1.length < 6) {
+      hex1 = `0${hex1}`;
+    }
+    if (hex1.length < 6) {
+      hex1 = `0${hex1}`;
+    }
+    if (hex1.length < 6) {
+      hex1 = `0${hex1}`;
+    }
+  }
+
+  arrHex.push(`#${hex1}`);
+
+  arr.reduce(function fs(previousValue, currentValue) {
+    let hex = currentValue.toString(16).toUpperCase();
+    // console.log(currentValue.toString(16));
+    // hex = hex.toUpperCase();
+
+    if (hex.length < 6) {
+      hex = `0${hex.toUpperCase()}`;
+      if (hex.length < 6) {
+        hex = `0${hex.toUpperCase()}`;
+      }
+      if (hex.length < 6) {
+        hex = `0${hex.toUpperCase()}`;
+      }
+      if (hex.length < 6) {
+        hex = `0${hex.toUpperCase()}`;
+      }
+      if (hex.length < 6) {
+        hex = `0${hex.toUpperCase()}`;
+      }
+      if (hex.length < 6) {
+        hex = `0${hex.toUpperCase()}`;
+      }
+    }
+
+    // const hexFinal = hex.toUpperCase();
+    arrHex.push(`#${hex}`);
+    return 0;
+  });
+  return arrHex;
 }
 
 /**
